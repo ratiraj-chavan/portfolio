@@ -176,11 +176,6 @@ hr {
     align-items: center;
 }
 
-.brand{
-    font-weight: bold;
-    font-size: 2.5rem;
-    font-family: 'Dancing Script', cursive;
-}
 
 .nav-pills{
     flex-wrap: wrap;
@@ -210,8 +205,9 @@ hr {
 }
 
 .hero-heading{
+    padding-bottom: 10px;
     text-align: center;
-    color: var(--secondary-color);
+    color: var(-secondary--color);
 }
 
 /* Footer */
@@ -291,4 +287,7 @@ hr {
 }
 .project-btns > a {
     margin-bottom: 0.5rem;
+}
+.text-center{
+    text-align: center;
 }
