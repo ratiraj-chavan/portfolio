@@ -134,3 +134,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Create floating circles background
+function createFloatingCircles() {
+    const circlesContainer = document.createElement('div');
+    circlesContainer.className = 'bg-floating-circles';
+    document.body.prepend(circlesContainer);
+
+    // Number of circles
+    const circleCount = 25;
+
+    for (let i = 0; i < circleCount; i++) {
+        const circle = document.createElement('div');
+        circle.className = 'floating-circle';
+        
+        // Random size between 5px and 30px
+        const size = Math.random() * 25 + 5;
+        circle.style.width = `${size}px`;
+        circle.style.height = `${size}px`;
+        
+        // Random position
+        circle.style.left = `${Math.random() * 100}%`;
+        
+        // Random animation duration between 10s and 20s
+        circle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+        
+        // Random delay
+        circle.style.animationDelay = `${Math.random() * 5}s`;
+        
+        circlesContainer.appendChild(circle);
+    }
+}
+
+createFloatingCircles();

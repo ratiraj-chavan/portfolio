@@ -227,7 +227,7 @@ nav {
     overflow: hidden;
     border: 5px solid var(--accent-color);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
-    animation: float 6s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
 }
 
 .image-wrapper img {
@@ -523,5 +523,38 @@ nav {
     .btn {
         display: block;
         margin: 1rem auto;
+    }
+}
+/* Background Floating Circles Animation */
+.bg-floating-circles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.floating-circle {
+    position: absolute;
+    bottom: -100px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(2px);
+    animation: circle-float linear infinite;
+}
+
+@keyframes circle-float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        bottom: -100px;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+        bottom: 100%;
     }
 }
