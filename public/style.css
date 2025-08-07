@@ -226,7 +226,7 @@ nav {
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid var(--accent-color);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 20px 60px rgba(215, 213, 213, 0.3);
     animation: float 3s ease-in-out infinite;
 }
 
