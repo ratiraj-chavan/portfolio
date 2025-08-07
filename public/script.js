@@ -61,19 +61,28 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateOnScroll);
     
     // Animate skill bars
-    const skillBars = document.querySelectorAll('.bar-fill');
-    
-    const animateSkillBars = () => {
-        skillBars.forEach(bar => {
-            const width = bar.getAttribute('data-width');
-            const elementPosition = bar.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementPosition < windowHeight - 100) {
-                bar.style.width = width;
-            }
-        });
-    };
+const skillBars = document.querySelectorAll('.bar-fill');
+
+// Animate skill bars on scroll
+const animateSkillBars = () => {
+    skillBars.forEach(bar => {
+        const width = bar.getAttribute('data-width');
+        const elementPosition = bar.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementPosition < windowHeight - 100) {
+            // Animate fill when in view
+            bar.style.width = width;
+        } else {
+            // Reset width when out of view
+            bar.style.width = '0';
+        }
+    });
+};
+
+// Run on scroll and on page load
+window.addEventListener('scroll', animateSkillBars);
+window.addEventListener('load', animateSkillBars);
     
     // Initial check
     animateSkillBars();
@@ -98,28 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form submission
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const message = this.querySelector('textarea').value;
-            
-            // Here you would typically send the data to a server
-            console.log('Form submitted:', { name, email, message });
-            
-            // Show success message
-            alert('Thank you for your message! I will get back to you soon.');
-            
-            // Reset form
-            this.reset();
-        });
-    }
+  
     
     // Header scroll effect
     const header = document.querySelector('header');
@@ -142,7 +130,7 @@ function createFloatingCircles() {
     document.body.prepend(circlesContainer);
 
     // Number of circles
-    const circleCount = 25;
+    const circleCount = 20;
 
     for (let i = 0; i < circleCount; i++) {
         const circle = document.createElement('div');
