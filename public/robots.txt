@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ratirajchavan.vercel.app/sitemap.xml
